@@ -1914,5 +1914,36 @@
 
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
+  <style>
+  /* Скрываем шапки только когда сайт внутри iframe */
+  html.in-iframe .top-bar,
+  html.in-iframe [class*="top-bar"],
+  html.in-iframe [class*="status"],
+  html.in-iframe header,
+  html.in-iframe nav,
+  html.in-iframe [class*="header"],
+  html.in-iframe [class*="navbar"],
+  html.in-iframe [class*="nav-"] {
+    display: none !important;
+  }
+
+  html.in-iframe body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  html.in-iframe main,
+  html.in-iframe section:first-of-type,
+  html.in-iframe [class*="hero"] {
+    padding-top: 40px !important;
+    margin-top: 0 !important;
+  }
+</style>
+
+<script>
+  if (window.self !== window.top) {
+    document.documentElement.classList.add('in-iframe');
+  }
+</script>
 </body>
 </html>
